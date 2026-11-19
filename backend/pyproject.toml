@@ -1,0 +1,23 @@
+[project]
+name = "websentinel-ai"
+version = "1.0.0"
+description = "AI-powered automated web testing platform with self-healing locators"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["e2e: browser-based end-to-end tests"]
+
+[tool.ruff.lint.per-file-ignores]
+"app/demo_site.py" = ["E501"]
